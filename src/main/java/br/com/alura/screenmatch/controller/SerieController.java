@@ -18,15 +18,17 @@ public class SerieController {
 
     @GetMapping("/series")
     public List<SerieDTO> obterSeries() {
-        return repositorio.findAll().stream().map(s -> new SerieDTO(
-                s.getId(),
-                s.getTitulo(),
-                s.getTotalTemporadas(),
-                s.getAvaliacao(),
-                s.getGenero(),
-                s.getAtores(),
-                s.getPoster(),
-                s.getSinopse())).collect(Collectors.toList());
+        return repositorio.findAll().stream()
+                .map(s -> new SerieDTO(
+                        s.getId(),
+                        s.getTitulo(),
+                        s.getTotalTemporadas(),
+                        s.getAvaliacao(),
+                        s.getGenero(),
+                        s.getAtores(),
+                        s.getPoster(),
+                        s.getSinopse()))
+                .collect(Collectors.toList());
     }
 
 }
